@@ -3,7 +3,7 @@
 ## Liens du projet
 
 - Repository GitHub : https://github.com/marieangedieng/vocal_asr_sentiment
-- Demo publique Render : A completer apres deploiement
+- Demo publique Render : https://vocal-asr-sentiment.onrender.com
 
 ## Presentation
 
@@ -389,7 +389,7 @@ Ensuite tester :
 POST /predict
 ```
 
-Dans Swagger, cliquer sur `Try it out`, choisir un fichier audio depuis `data/samples`, puis executer la requete.
+Dans Swagger, cliquer sur `Try it out`, choisir un fichier audio depuis `data/samples`, puis executer la requete ou ajouter un audio depuis data/samples et liser le résultat.
 
 Exemple avec `curl` :
 
@@ -409,7 +409,7 @@ curl.exe -X POST "http://localhost:8000/predict" `
 
 L'API doit rester lancee dans un premier terminal.
 
-Terminal 1 :
+Donc Terminal 1 :
 
 ```bash
 uvicorn app.api.main:app --reload --host 0.0.0.0 --port 8000
@@ -455,16 +455,6 @@ Linux ou macOS :
 API_URL=http://localhost:8000 python app/gradio_app.py
 ```
 
-### 4. Tests automatises
-
-Les tests automatises verifient le preprocessing, les erreurs metier, le mapping sentiment et les endpoints API avec un pipeline simule.
-
-Commande :
-
-```bash
-python -m pytest -q
-```
-
 ## Lancement avec Docker
 
 Docker installe `ffmpeg` et `libsndfile1` via le `Dockerfile`.
@@ -484,8 +474,6 @@ Services :
 ## Deploiement public
 
 ### Render
-
-Render peut etre utilise comme alternative si Hugging Face Spaces Gradio n'est pas disponible gratuitement.
 
 Le fichier :
 
@@ -510,12 +498,10 @@ Il faut aussi s'assurer que `ffmpeg` est installe sur l'environnement de deploie
 URL Render :
 
 ```text
-A completer apres deploiement
+https://vocal-asr-sentiment.onrender.com
 ```
 
-### Hugging Face Spaces
-
-Le dossier `hf_space/` contient une preparation pour Hugging Face Spaces. Cependant, selon les conditions du compte Hugging Face, la creation d'un Space Gradio peut demander un abonnement payant. Dans ce cas, Render ou une autre plateforme cloud peut etre utilisee.
+Remarque importante : sur le plan gratuit Render, le service peut se mettre en veille apres une periode d'inactivite. Au premier acces, il faut donc attendre environ 50 secondes avant que la page Gradio se charge. La page publique permet de verifier le deploiement de l'interface, mais l'analyse complete d'un fichier audio peut ne pas aboutir sur cette offre gratuite, car l'espace disque disponible ne suffit pas toujours a telecharger et mettre en cache les modeles Hugging Face utilises par le pipeline.
 
 ## Cas d'usage professionnels
 
