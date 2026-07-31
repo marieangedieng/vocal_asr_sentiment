@@ -79,12 +79,6 @@ python -m pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Dans cet environnement Windows, l'installation a necessite:
-
-```powershell
-python -m pip install --user --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt pytest==8.3.3
-```
-
 ## 5. Lancement de l'API
 
 ```bash
