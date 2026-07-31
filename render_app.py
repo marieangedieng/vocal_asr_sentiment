@@ -17,5 +17,5 @@ os.environ.setdefault("API_URL", "http://127.0.0.1:8000")
 threading.Thread(target=run_api, daemon=True).start()
 time.sleep(3)
 
-demo = build_interface()
-
+port = int(os.getenv("PORT", "7860"))
+build_interface().launch(server_name="0.0.0.0", server_port=port, share=False)
