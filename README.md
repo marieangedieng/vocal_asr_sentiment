@@ -71,10 +71,6 @@ La confiance retournee correspond a la probabilite agregee de la classe finale.
 │   ├── evaluate_asr.py          # Evaluation ASR sur Common Voice FR, resultats dans results.md
 │   ├── evaluate_sentiment.py    # Evaluation sentiment sur Allocine, resultats dans results.md
 │   └── results.md               # Historique des resultats d'evaluation
-├── hf_space/                    # Fichiers prepares pour Hugging Face Spaces
-├── tests/
-│   ├── test_api.py              # Tests automatises de l'API avec pipeline simule
-│   └── test_pipeline.py         # Tests du preprocessing et du mapping sentiment
 ├── Dockerfile                   # Image Docker avec ffmpeg et libsndfile
 ├── docker-compose.yml           # Lancement API + Gradio en deux services
 ├── environment.yml              # Environnement conda reproductible
