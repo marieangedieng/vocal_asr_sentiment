@@ -1,0 +1,25 @@
+services:
+  api:
+    build: .
+    command: uvicorn app.api.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - MAX_DURATION_SEC=300
+      - SILENCE_RMS_THRESHOLD=0.003
+    volumes:
+      - hf-cache:/root/.cache/huggingface
+
+  gradio:
+    build: .
+    command: python app/gradio_app.py
+    depends_on:
+      - api
+    ports:
+      - "7860:7860"
+    environment:
+      - API_URL=http://api:8000
+
+volumes:
+  hf-cache:
+
